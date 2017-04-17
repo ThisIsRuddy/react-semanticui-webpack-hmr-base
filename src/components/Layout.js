@@ -1,30 +1,53 @@
 import React, {Component} from 'react';
-import { Sidebar, Segment, Button, Image, Header } from 'semantic-ui-react';
+import {Container, Segment, Button, Image, Header} from 'semantic-ui-react';
+import NavTopbar from './NavTopbar';
 import NavSidebar from './NavSidebar';
 
-export default class Layout extends Component{
+export default class Layout extends Component {
 
-  constructor(){
+  constructor() {
     super();
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div id="mainContainer">
+        <NavTopbar ref="topnav"/>
+        <NavSidebar ref="sidenav"/>
 
-        <Button onClick={() => this.refs.sidebar.toggleVisibility()}>Toggle Visibility</Button>
-        <Sidebar.Pushable as={Segment}>
+        <Container>
+          <Segment inverted clearing>
+            <Header as='h3'>Application Content</Header>
+            <Image src='http://react.semantic-ui.com/assets/images/wireframe/paragraph.png'/>
+            <Button inverted color='green' floated="right" onClick={() => this.refs.sidenav.toggleVisibility()}>Toggle Visibility</Button>
+          </Segment>
+        </Container>
 
-          <NavSidebar ref="sidebar"/>
+        <Container>
+          <Segment inverted clearing>
+            <Header as='h3'>Application Content</Header>
+            <Image src='http://react.semantic-ui.com/assets/images/wireframe/paragraph.png'/>
+            <Button inverted color='green' floated="right" onClick={() => this.refs.sidenav.toggleVisibility()}>Toggle Visibility</Button>
+          </Segment>
+        </Container>
 
-          <Sidebar.Pusher>
-            <Segment basic>
-              <Header as='h3'>Application Content</Header>
-              <Image src='http://react.semantic-ui.com/assets/images/wireframe/paragraph.png' />
-            </Segment>
-          </Sidebar.Pusher>
+        <Container>
+          <Segment inverted clearing>
+            <Header as='h3'>Application Content</Header>
+            <Image src='http://react.semantic-ui.com/assets/images/wireframe/paragraph.png'/>
+            <Button inverted color='green' floated="right" onClick={() => this.refs.sidenav.toggleVisibility()}>Toggle Visibility</Button>
+          </Segment>
+        </Container>
 
-        </Sidebar.Pushable>
+        <Container>
+          <Segment inverted clearing>
+            <Header as='h3'>Application Content</Header>
+            <Image src='http://react.semantic-ui.com/assets/images/wireframe/paragraph.png'/>
+            <Button inverted color='green' floated="right" onClick={() => this.refs.sidenav.toggleVisibility()}>Toggle Visibility</Button>
+          </Segment>
+        </Container>
+
+
       </div>
     )
   }

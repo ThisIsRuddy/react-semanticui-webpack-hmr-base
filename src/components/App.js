@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Button } from 'semantic-ui-react';
+import React, {Component} from 'react';
+import Layout from './Layout';
 
 export default class App extends Component {
 
@@ -9,7 +9,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <Button>Click me or not!</Button>
+      <Layout/>
     );
   }
 

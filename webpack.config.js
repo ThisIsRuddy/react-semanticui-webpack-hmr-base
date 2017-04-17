@@ -1,7 +1,7 @@
-const {resolve} = require('path');
+const path = require('path');
 const webpack = require('webpack');
 module.exports = {
-  context: resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, 'src'),
   entry: [
     'react-hot-loader/patch', // activate HMR for React
     'webpack-dev-server/client?http://localhost:8080', // bundle the client for webpack-dev-server and connect to the provided endpoint
@@ -10,13 +10,13 @@ module.exports = {
   ],
   output: {
     filename: 'bundle.js',
-    path: resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/' // necessary for HMR to know where to load the hot update chunks
   },
   devtool: 'inline-source-map',
   devServer: {
     hot: true,
-    contentBase: resolve(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, 'dist'),
     publicPath: '/' // match the output `publicPath`
   },
   module: {
