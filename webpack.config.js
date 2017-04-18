@@ -16,7 +16,10 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     hot: true,
-    contentBase: path.resolve(__dirname, 'dist'),
+    contentBase: [
+      path.resolve(__dirname, 'dist'),
+      path.resolve(__dirname, 'semantic/dist'),
+    ],
     publicPath: '/' // match the output `publicPath`
   },
   module: {
@@ -28,7 +31,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
+        loader: "style-loader!css-loader?url=false"
       }
     ],
   },

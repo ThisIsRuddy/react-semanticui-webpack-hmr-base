@@ -1,22 +1,15 @@
-import 'react-hot-loader/patch';
 import React from 'react';
-import { render } from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import RootContainer from './components/App.js';
+import {render} from 'react-dom';
+import {AppContainer} from 'react-hot-loader';
+import 'react-hot-loader/patch';
 
-render((
-  <AppContainer>
-    <RootContainer />
-  </AppContainer>
-), document.getElementById('root'));
+import '../semantic/dist/semantic.min.css';
+import '../dist/styles.css';
 
-if (module.hot) {
-  module.hot.accept('./components/App.js', () => {
-    const NextRootContainer = require('./components/App.js');
-    render((
-      <AppContainer>
-        <NextRootContainer />
-      </AppContainer>
-    ), document.getElementById('root'));
-  })
-}
+const renderContainer = Container => render((<AppContainer><Container/></AppContainer>), document.getElementById('root'));
+
+import App from './components/App.js';
+const HotApp = require('./components/App.js');
+
+renderContainer(App);
+if (module.hot) module.hot.accept('./components/App.js', () => renderContainer(HotApp));
