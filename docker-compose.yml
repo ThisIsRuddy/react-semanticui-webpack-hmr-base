@@ -1,0 +1,16 @@
+version: '2'
+services:
+    web:
+        container_name: rapp-react
+        restart: always
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        ports:
+          - "3000:3000"
+    db:
+        container_name: rapp-mongodb
+        image: mongo
+        restart: always
+        ports:
+          - "27019:27017"
