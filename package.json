@@ -1,7 +1,7 @@
 {
-  "name": "react-tutorial",
-  "version": "0.0.0",
-  "main": "server.js",
+  "name": "react-semanticui-webpack-hmr-base",
+  "version": "1.0.1",
+  "main": "src/index.jsx",
   "dependencies": {
     "jquery": "^3.2.1",
     "path": "^0.12.7",
