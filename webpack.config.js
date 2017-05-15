@@ -4,7 +4,7 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: [
     'react-hot-loader/patch', // activate HMR for React
-    'webpack-dev-server/client?http://localhost:8080', // bundle the client for webpack-dev-server and connect to the provided endpoint
+    'webpack-dev-server/client?http://0.0.0.0:3000/', // bundle the client for webpack-dev-server and connect to the provided endpoint
     'webpack/hot/only-dev-server', // bundle the client for hot reloading only- means to only hot reload for successful updates
     './index.jsx'
   ],
@@ -15,12 +15,18 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
+	host: '0.0.0.0',
+	port: 3000,
     hot: true,
     contentBase: [
       path.resolve(__dirname, 'dist'),
-      path.resolve(__dirname, 'semantic/dist'),
+      //path.resolve(__dirname, 'semantic/dist'),
     ],
-    publicPath: '/' // match the output `publicPath`
+    publicPath: '/', // match the output `publicPath`,
+	headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+    }
   },
   module: {
     rules: [
@@ -39,4 +45,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
   ],
+  watchOptions: {
+    poll: 1000
+  }
 };
