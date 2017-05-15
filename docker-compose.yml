@@ -8,9 +8,14 @@ services:
             dockerfile: Dockerfile
         ports:
           - "3000:3000"
+        volumes:
+          - ./src:/var/www/reactapp/src
+          - ./package.json:/var/www/reactapp/package.json
+          - ./webpack.config.js:/var/www/reactapp/webpack.config.js
+          - ./semantic.json:/var/www/reactapp/semantic.json
     db:
         container_name: rapp-mongodb
         image: mongo
         restart: always
         ports:
-          - "27019:27017"
+          - "27017:27017"
